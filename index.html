@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="rockPaperScissors">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>rockPaperScissors</title>
+</head>
+<body ng-controller="baseCtrl">
+  <!-- HEADER -->
+  <!-- Timer display and controls -->
+  <header>
+    <div class="row">
+      <input ng-model="minutes" type="number" min="0" autofocus>
+      <input ng-model="seconds" type="number" maxlength="2" min="00" max="59">
+      <button><i class="material-icons">play_arrow</i></button>
+      <button><i class="material-icons">pause</i></button>
+      <button><i class="material-icons">replay</i></button>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <section></section>
+    <section></section>
+  </main>
+
+  <!-- FOOTER -->
+  <!-- Score Tracker -->
+  <footer>
+    <input ng-model="won" type="number" readonly>
+    <input ng-model="tied" type="number" readonly>
+    <input ng-model="lost" type="number" readonly>
+  </footer>
+
+
+  <!-- Javescript files for our Angular App -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+  <script src="./js/app.js"></script>
+  <script src="./js/baseCtrl.js"></script>
+</body>
+</html>
