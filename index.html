@@ -11,10 +11,10 @@
   <!-- Timer display and controls -->
   <header>
     <div class="row">
-      <input ng-model="minutes" type="number" min="0" autofocus>
-      <input ng-model="seconds" type="number" maxlength="2" min="00" max="59">
-      <button><i class="material-icons">play_arrow</i></button>
-      <button><i class="material-icons">pause</i></button>
+      <input ng-model="minutes" type="number" min="0" max="60" autofocus>
+      <input ng-model="seconds" type="number" maxlength="2" min="0" max="59">
+      <button ng-if="!playing"><i class="material-icons">play_arrow</i></button>
+      <button ng-if="playing"><i class="material-icons">pause</i></button>
       <button><i class="material-icons">replay</i></button>
     </div>
   </header>

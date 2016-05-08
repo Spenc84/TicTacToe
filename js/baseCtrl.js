@@ -5,4 +5,5 @@ angular.module('rockPaperScissors')
   $scope.won = 0;
   $scope.tied = 0;
   $scope.lost = 0;
+  $scope.playing = false;
 });
