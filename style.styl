@@ -9,6 +9,9 @@ center(direction)
     justify-content center
     align-items center
 
+color1 = #2C2B3F
+color2 = #DBDBDB
+
 
 html, body
   width 100vw
@@ -17,8 +20,14 @@ html, body
 
 header
   height 10%
-  background-color blue
+  color white
+  background-color color1
   center(r)
+  div.img
+    margin 0 3em
+  img
+    align-self flex-start
+    height 75px
   div.row
     center(r)
     input
@@ -29,7 +38,7 @@ header
       margin-left 1em
 main
   height 80%
-  background-color purple
+  background-color color2
   center(r)
   section
     height 100%
@@ -55,8 +64,9 @@ main
             height 100px
             margin-bottom 1em
 footer
+  color white
   height 10%
-  background-color blue
+  background-color color1
   center(r)
   div.col
     center(c)

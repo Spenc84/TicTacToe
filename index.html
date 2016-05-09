@@ -10,6 +10,8 @@
   <!-- HEADER -->
   <!-- Timer display and controls -->
   <header>
+    <div class="img"><img src="./images/logo.png" alt="logo"></div>
+
     <div class="row">
       <div class="col">
         Min<br/>
@@ -21,9 +23,9 @@
       </div>
       <div class="col">
         <br/>
-        <button ng-if="!playing"><i class="material-icons">play_arrow</i></button>
-        <button ng-if="playing"><i class="material-icons">pause</i></button>
-        <button><i class="material-icons">replay</i></button>
+        <button ng-click="play()" ng-if="!playing"><i class="material-icons">play_arrow</i></button>
+        <button ng-click="pause()" ng-if="playing"><i class="material-icons">pause</i></button>
+        <button ng-click="restart()"><i class="material-icons">replay</i></button>
       </div>
     </div>
   </header>
@@ -36,15 +38,15 @@
         <div class="col">
           <div class="row">
             <span>Rock</span>
-            <img src="./images/Rock.png" alt="Rock">
+            <img ng-click="throw(3)" src="./images/Rock.png" alt="Rock">
           </div>
           <div class="row">
             <span>Scissors</span>
-            <img src="./images/Scissors.png" alt="Scissors">
+            <img ng-click="throw(2)" src="./images/Scissors.png" alt="Scissors">
           </div>
           <div class="row">
             <span>Paper</span>
-            <img src="./images/Paper.png" alt="Paper">
+            <img ng-click="throw(1)" src="./images/Paper.png" alt="Paper">
           </div>
         </div>
         <div class="col"></div>
@@ -52,6 +54,24 @@
     </section>
     <section>
       <h2>Computer</h2>
+      <div class="row">
+        <div class="col">
+        </div>
+        <div class="col">
+            <div class="row">
+              <span>Rock</span>
+              <img src="./images/Rock.png" alt="Rock">
+            </div>
+            <div class="row">
+              <span>Scissors</span>
+              <img src="./images/Scissors.png" alt="Scissors">
+            </div>
+            <div class="row">
+              <span>Paper</span>
+              <img src="./images/Paper.png" alt="Paper">
+            </div>
+        </div>
+      </div>
     </section>
   </main>
 
