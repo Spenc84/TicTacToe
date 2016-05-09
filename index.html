@@ -11,26 +11,65 @@
   <!-- Timer display and controls -->
   <header>
     <div class="row">
-      <input ng-model="minutes" type="number" min="0" max="60" autofocus>
-      <input ng-model="seconds" type="number" maxlength="2" min="0" max="59">
-      <button ng-if="!playing"><i class="material-icons">play_arrow</i></button>
-      <button ng-if="playing"><i class="material-icons">pause</i></button>
-      <button><i class="material-icons">replay</i></button>
+      <div class="col">
+        Min<br/>
+        <input ng-model="minutes" type="number" min="0" max="60" autofocus>
+      </div>
+      <div class="col">
+        Sec<br/>
+        <input ng-model="seconds" type="number" maxlength="2" min="0" max="59">
+      </div>
+      <div class="col">
+        <br/>
+        <button ng-if="!playing"><i class="material-icons">play_arrow</i></button>
+        <button ng-if="playing"><i class="material-icons">pause</i></button>
+        <button><i class="material-icons">replay</i></button>
+      </div>
     </div>
   </header>
 
   <!-- MAIN -->
   <main>
-    <section></section>
-    <section></section>
+    <section>
+      <h2>You</h2>
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <span>Rock</span>
+            <img src="./images/Rock.png" alt="Rock">
+          </div>
+          <div class="row">
+            <span>Scissors</span>
+            <img src="./images/Scissors.png" alt="Scissors">
+          </div>
+          <div class="row">
+            <span>Paper</span>
+            <img src="./images/Paper.png" alt="Paper">
+          </div>
+        </div>
+        <div class="col"></div>
+      </div>
+    </section>
+    <section>
+      <h2>Computer</h2>
+    </section>
   </main>
 
   <!-- FOOTER -->
   <!-- Score Tracker -->
   <footer>
-    <input ng-model="won" type="number" readonly>
-    <input ng-model="tied" type="number" readonly>
-    <input ng-model="lost" type="number" readonly>
+      <div class="col">
+        <b>Won</b><br/>
+        {{won}}
+      </div>
+      <div class="col">
+        <b>Tied</b><br/>
+        {{tied}}
+      </div>
+      <div class="col">
+        <b>Lost</b><br/>
+        {{lost}}
+      </div>
   </footer>
 
 

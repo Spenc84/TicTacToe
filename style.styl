@@ -1,22 +1,66 @@
+center(direction)
+  if direction == r
+    display flex
+    justify-content center
+    align-items center
+  else if direction == c
+    display flex
+    flex-direction column
+    justify-content center
+    align-items center
+
+
 html, body
   width 100vw
   height 100vh
   box-sizing border-box
 
 header
-  height 20%
-  background-color red
-  display flex
-  align-items center
-  justify-content center
-main
-  height 60%
-  background-color purple
-footer
-  height 20%
+  height 10%
   background-color blue
-  display flex
-  align-items center
-  justify-content center
-  input
-    margin 1em
+  center(r)
+  div.row
+    center(r)
+    input
+      padding 3px 6px
+      font-size 16px
+    button
+      padding 3px 6px
+      margin-left 1em
+main
+  height 80%
+  background-color purple
+  center(r)
+  section
+    height 100%
+    width 50%
+    display flex
+    flex-direction column
+    h2
+      text-align center
+    &:first-child
+      border-right 1px solid black
+    div.row
+      height 80%
+      center(r)
+      div.col
+        height 100%
+        width 50%
+        display flex
+        flex-direction column
+        justify-content space-around
+        div.row
+          center(c)
+          img
+            height 100px
+            margin-bottom 1em
+footer
+  height 10%
+  background-color blue
+  center(r)
+  div.col
+    center(c)
+    line-height 10px
+    margin 0 1em
+    input
+      margin 0 1em
