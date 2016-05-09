@@ -10,6 +10,8 @@ angular.module('rockPaperScissors')
     $scope.lost = 0;
     $scope.playing = false;
     $interval.cancel(tock);
+    $scope.userSelection = "./images/blank.png";
+    $scope.compSelection = "./images/blank.png";
   };
   $scope.restart();
 
@@ -44,16 +46,15 @@ angular.module('rockPaperScissors')
 
   $scope.throw = function(choice){
     if($scope.playing){
-      if(choice === 1) $scope.userSelection = "./images/paper.png";
-      else if(choice === 2) $scope.userSelection = "./images/scissors.png";
-      else $scope.userSelection = "./images/rock.png";
+      if(choice === 1) $scope.userSelection = "./images/paper1.png";
+      else if(choice === 2) $scope.userSelection = "./images/scissors1.png";
+      else $scope.userSelection = "./images/rock1.png";
 
       var comp = Math.ceil(Math.random()*3);
-      console.log(choice, comp);
 
-      if(comp === 1) $scope.compSelection = "./images/paper.png";
-      else if(comp === 2) $scope.compSelection = "./images/scissors.png";
-      else $scope.compSelection = "./images/rock.png";
+      if(comp === 1) $scope.compSelection = "./images/paper2.png";
+      else if(comp === 2) $scope.compSelection = "./images/scissors2.png";
+      else $scope.compSelection = "./images/rock2.png";
 
 
       if(choice === comp) $scope.tied++;
