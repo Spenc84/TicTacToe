@@ -51,6 +51,9 @@ main section h2 {
 main section:first-child {
   border-right: 1px solid #000;
 }
+main section:first-child img {
+  cursor: pointer;
+}
 main section div.row {
   height: 80%;
   display: flex;

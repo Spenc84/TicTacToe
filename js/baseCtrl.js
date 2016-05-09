@@ -27,7 +27,7 @@ angular.module('rockPaperScissors')
   function tick(){
     $scope.seconds--;
     if($scope.minutes === 0)
-     if($scope.seconds === 10) alert("10 seconds remaining");
+     if($scope.seconds === 9) alert("10 seconds remaining");
      else if($scope.seconds === 0) endGame();
     if($scope.seconds < 0){
       $scope.minutes--;
