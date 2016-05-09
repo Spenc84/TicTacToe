@@ -32,9 +32,11 @@
 
   <!-- MAIN -->
   <main>
+    <!-- USER'S SIDE -->
     <section>
       <h2>You</h2>
       <div class="row">
+        <!-- USER OPTIONS -->
         <div class="col">
           <div class="row">
             <span>Rock</span>
@@ -49,14 +51,21 @@
             <img ng-click="throw(1)" src="./images/Paper.png" alt="Paper">
           </div>
         </div>
-        <div class="col"></div>
+        <!-- USER'S SELECTION -->
+        <div class="col">
+          <img ng-src="{{userSelection}}">
+        </div>
       </div>
     </section>
+    <!-- COMPUTER'S SIDE -->
     <section>
       <h2>Computer</h2>
       <div class="row">
+        <!-- COMPUTER'S SELECTION -->
         <div class="col">
+          <img ng-src="{{compSelection}}">
         </div>
+        <!-- COMPUTER'S OPTIONS -->
         <div class="col">
             <div class="row">
               <span>Rock</span>

@@ -54,6 +54,19 @@ main section:first-child {
 main section:first-child img {
   cursor: pointer;
 }
+main section:first-child div.row div.col:last-child {
+  align-items: center;
+}
+main section:first-child div.row div.col:last-child img {
+  width: 80%;
+  cursor: default;
+}
+main section:last-child div.row div.col:first-child {
+  align-items: center;
+}
+main section:last-child div.row div.col:first-child img {
+  width: 80%;
+}
 main section div.row {
   height: 80%;
   display: flex;

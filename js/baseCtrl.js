@@ -44,8 +44,17 @@ angular.module('rockPaperScissors')
 
   $scope.throw = function(choice){
     if($scope.playing){
+      if(choice === 1) $scope.userSelection = "./images/paper.png";
+      else if(choice === 2) $scope.userSelection = "./images/scissors.png";
+      else $scope.userSelection = "./images/rock.png";
+
       var comp = Math.ceil(Math.random()*3);
       console.log(choice, comp);
+
+      if(comp === 1) $scope.compSelection = "./images/paper.png";
+      else if(comp === 2) $scope.compSelection = "./images/scissors.png";
+      else $scope.compSelection = "./images/rock.png";
+
 
       if(choice === comp) $scope.tied++;
       else switch(choice){
