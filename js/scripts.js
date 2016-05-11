@@ -1,29 +1,46 @@
-angular.module('rockPaperScissors')
-.controller('baseCtrl', function($scope, $interval){
-  var tock;
+$(document).ready(function(){
+
+  var tock,
+      $scope = {};
+  console.log("loaded");
+
+  //jQuery HTML Elements
+  var $minutes = $('#minutes'),
+      $seconds = $('#seconds'),
+      $play = $('#play'),
+      $pause = $('#pause'),
+      $restart = $('#restart'),
+      $user = $('#user'),
+      $comp = $('#comp'),
+      $won = $('#won'),
+      $tied = $('#tied'),
+      $lost = $('#lost');
 
   $scope.restart = function(){
-    $scope.minutes = 0;
-    $scope.seconds = 0;
-    $scope.won = 0;
-    $scope.tied = 0;
-    $scope.lost = 0;
+    $minutes.val(0);
+    $seconds.val(0);
+    $won.text(0);
+    $tied.text(0);
+    $lost.text(0);
+    $user.attr('src', './images/blank.png');
+    $comp.attr('src', './images/blank.png');
+
     $scope.playing = false;
-    $interval.cancel(tock);
+    clearInterval(tock);
     $scope.userSelection = "./images/blank.png";
     $scope.compSelection = "./images/blank.png";
   };
   $scope.restart();
 
-  $scope.play = function(){
-    $scope.playing = true;
-    tick();
-    tock = $interval(tick, 1000);
-    $scope.$on('$destroy', function() { $interval.cancel(tock); } );
-  };
+  play.click(function(){
+    // $scope.playing = true;
+    console.log("play on");
+    // tick();
+    // tock = setInterval(tick, 1000);
+  });
   $scope.pause = function() {
     $scope.playing = false;
-    $interval.cancel(tock);
+    clearInterval(tock);
   };
 
   function tick(){
