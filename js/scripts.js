@@ -22,8 +22,8 @@ $(document).ready(function(){
       $lost = $('#lost');
 
   restart();
-  console.log("loaded");
 
+////////////  Functions to control the timer  /////////////
   function restart(){
     $minutes.val(0);
     $seconds.val(0);
@@ -58,6 +58,8 @@ $(document).ready(function(){
   $pause.click(pause);
   $restart.click(restart);
 
+//////// Function to update the clock once every second ///
+///////////// Called on lines 47 and 48 ///////////////////
   function tick(){
     seconds--;
     $seconds.val(seconds);
@@ -72,7 +74,9 @@ $(document).ready(function(){
       else if(seconds <= 0) endGame();
     }
   }
+///////////////////////////////////////////////////////////
 
+/////////// Functions to process the score ////////////////
   function endGame(){
     var won = $won.text();
         lost = $lost.text();
@@ -102,13 +106,20 @@ $(document).ready(function(){
       if(choice === comp) $tied.text(parseInt($tied.text()) + 1);
       else switch(choice){
         case 1:
-          (comp === 3) ? $won.text(parseInt($won.text()) + 1) : $lost.text(parseInt($lost.text()) + 1); break;
+          if (comp === 3) $won.text(parseInt($won.text()) + 1);
+          else $lost.text(parseInt($lost.text()) + 1);
+          break;
         case 2:
-          (comp === 1) ? $won.text(parseInt($won.text()) + 1) : $lost.text(parseInt($lost.text()) + 1); break;
+          if (comp === 1) $won.text(parseInt($won.text()) + 1);
+          else $lost.text(parseInt($lost.text()) + 1);
+          break;
         case 3:
-          (comp === 2) ? $won.text(parseInt($won.text()) + 1) : $lost.text(parseInt($lost.text()) + 1); break;
+          if (comp === 2) $won.text(parseInt($won.text()) + 1);
+          else $lost.text(parseInt($lost.text()) + 1);
+          break;
       }
     }
   }
+///////////////////////////////////////////////////////////
 
 });

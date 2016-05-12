@@ -56,6 +56,7 @@ main section:first-child img {
 }
 main section:first-child div.row div.col:last-child {
   align-items: center;
+  justify-content: center;
 }
 main section:first-child div.row div.col:last-child img {
   width: 80%;
@@ -63,12 +64,13 @@ main section:first-child div.row div.col:last-child img {
 }
 main section:last-child div.row div.col:first-child {
   align-items: center;
+  justify-content: center;
 }
 main section:last-child div.row div.col:first-child img {
   width: 80%;
 }
 main section div.row {
-  height: 80%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
