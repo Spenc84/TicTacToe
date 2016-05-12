@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+  <!-- <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script> -->
+  <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
   <!-- Vanilla Javascript -->
   <script src="./js/scripts.js"></script>
   <title>rockPaperScissors</title>
@@ -26,9 +27,9 @@
       </div>
       <div class="col">
         <br/>
-        <button id="play" ng-if="!playing"><i class="material-icons">play_arrow</i></button>
-        <button id="pause" onclick="pause()" ng-if="playing"><i class="material-icons">pause</i></button>
-        <button id="restart" onclick="restart()"><i class="material-icons">replay</i></button>
+        <button id="play"><i class="material-icons">play_arrow</i></button>
+        <button id="pause"><i class="material-icons">pause</i></button>
+        <button id="restart"><i class="material-icons">replay</i></button>
       </div>
     </div>
   </header>
