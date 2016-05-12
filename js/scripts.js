@@ -1,22 +1,28 @@
 $(document).ready(function(){
 
+  // Local variable
   var tock,
       seconds,
       minutes,
-      $scope = {};
-  console.log("loaded");
+      playing;
 
-  //jQuery HTML Elements
+  // jQuery HTML Elements
   var $minutes = $('#minutes'),
       $seconds = $('#seconds'),
       $play = $('#play'),
       $pause = $('#pause'),
       $restart = $('#restart'),
+      $rock = $('#rock'),
+      $scissors = $('#scissors'),
+      $paper = $('#paper'),
       $user = $('#user'),
       $comp = $('#comp'),
       $won = $('#won'),
       $tied = $('#tied'),
       $lost = $('#lost');
+
+  restart();
+  console.log("loaded");
 
   function restart(){
     $minutes.val(0);
@@ -28,78 +34,81 @@ $(document).ready(function(){
     $comp.attr('src', './images/blank.png');
     $play.show();
     $pause.hide();
-
-    $scope.playing = false;
+    playing = false;
     clearInterval(tock);
   }
-  restart();
-
-  $play.click(function(){
-    $scope.playing = true;
-    console.log($scope.playing);
-
+  function play(){
+    seconds = parseInt($seconds.val());
+    minutes = parseInt($minutes.val());
+    if(minutes === 0 && seconds === 0) return;
+    playing = true;
     $play.hide();
     $pause.show();
-    seconds = $seconds.val();
-    minutes = $minutes.val();
     tick();
-    tock = setInterval(tick, 1000);
-  });
-  $pause.click(function(){
-    $scope.playing = false;
+    if(seconds !== 0) tock = setInterval(tick, 1000);
+  }
+  function pause(){
+    playing = false;
     $play.show();
     $pause.hide();
     clearInterval(tock);
-  });
+  }
+
+  $play.click(play);
+  $pause.click(pause);
   $restart.click(restart);
 
   function tick(){
     seconds--;
-    console.log(minutes);
-    console.log(seconds);
     $seconds.val(seconds);
-    if(minutes > 0){
+    if(minutes > 0) {
       if(seconds < 0){
         seconds = 59;
         $minutes.val(--minutes);
         $seconds.val(seconds);
       }
-    }
-    else
+    } else {
       if(seconds === 10) alert("10 seconds remaining");
       else if(seconds <= 0) endGame();
+    }
   }
 
   function endGame(){
-    if($scope.won > $scope.lost) alert("Congratulations. You won!!");
-    else if($scope.won === $scope.lost) alert("TIED");
+    var won = $won.text();
+        lost = $lost.text();
+
+    if(won > lost) alert("Congratulations. You won!!");
+    else if(won === lost) alert("TIED");
     else alert("Sorry, but you lost this time...");
     restart();
   }
 
-  $scope.throw = function(choice){
-    if($scope.playing){
-      if(choice === 1) $scope.userSelection = "./images/paper1.png";
-      else if(choice === 2) $scope.userSelection = "./images/scissors1.png";
-      else $scope.userSelection = "./images/rock1.png";
+  $rock.click(function(){$throw(3);});
+  $scissors.click(function(){$throw(2);});
+  $paper.click(function(){$throw(1);});
+  function $throw(choice){
+    if(playing){
+      if(choice === 1) $user.attr('src', './images/paper1.png');
+      else if(choice === 2) $user.attr('src', './images/scissors1.png');
+      else $user.attr('src', './images/rock1.png');
 
       var comp = Math.ceil(Math.random()*3);
 
-      if(comp === 1) $scope.compSelection = "./images/paper2.png";
-      else if(comp === 2) $scope.compSelection = "./images/scissors2.png";
-      else $scope.compSelection = "./images/rock2.png";
+      if(comp === 1) $comp.attr('src', './images/paper2.png');
+      else if(comp === 2) $comp.attr('src', './images/scissors2.png');
+      else $comp.attr('src', './images/rock2.png');
 
 
-      if(choice === comp) $scope.tied++;
+      if(choice === comp) $tied.text(parseInt($tied.text()) + 1);
       else switch(choice){
         case 1:
-          (comp === 3) ? $scope.won++ : $scope.lost++; break;
+          (comp === 3) ? $won.text(parseInt($won.text()) + 1) : $lost.text(parseInt($lost.text()) + 1); break;
         case 2:
-          (comp === 1) ? $scope.won++ : $scope.lost++; break;
+          (comp === 1) ? $won.text(parseInt($won.text()) + 1) : $lost.text(parseInt($lost.text()) + 1); break;
         case 3:
-          (comp === 2) ? $scope.won++ : $scope.lost++; break;
+          (comp === 2) ? $won.text(parseInt($won.text()) + 1) : $lost.text(parseInt($lost.text()) + 1); break;
       }
     }
-  };
+  }
 
 });
